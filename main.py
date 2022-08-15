@@ -1,16 +1,9 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#Ask user if it is tracking information for a junior or semior volleyball game
+game_type = input("Is this a junior (3 set) or senior (5 set) game?").lower().strip()
+try:
+    if game_type == "junior":
+        set_number == 3
+    elif game_type == "senior":
+        set_number == 5
+except NameError:
+    print("Something went wrong. Please try again.")
