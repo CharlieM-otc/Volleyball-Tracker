@@ -8,6 +8,8 @@ team_a_set_score = 0
 team_b_set_score = 0
 team_a_number_of_subs = 12
 team_b_number_of_subs = 12
+team_a_timeouts = 3
+team_b_timeouts = 3
 
 game_type = input("Is the game a junior (best of 3 sets) game or a senior (best of 5 sets) game?").strip().lower()
 if game_type == "junior":
@@ -74,16 +76,43 @@ while True:
             print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
             print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
         else:
-            print("Am error has occured, please try again.")
+            print("An error has occured, please try again.")
 
      #Making a substitution *THIS IS NOT WORKING*
     elif action == 3:
         which_team = input("Which team is making a substitution: if team A ({}) enter 'A'. If team B ({}) enter 'B'. If you wish to go back to the menu enter 'back'.".format(team_a, team_b))
         if which_team == "A":
-            current_shirt_number = int(input("What number is being subbed off the court?"))
-            replacement_shirt_number = int(input("What number is being subbed on the court?"))
-            shirt_list_team_a.get(current_shirt_number)
-            shirt_list_team_a.remove(current_shirt_number)
-            shirt_list_team_a.append(replacement_shirt_number)
+            current_shirt_number = input("What number is being subbed off the court?")
+            replacement_shirt_number = input("What number is being subbed on the court?")
+            for i in range(7):
+                if shirt_list_team_a[i] == current_shirt_number:
+                    shirt_list_team_a[i] = replacement_shirt_number
+            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
+            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
+            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+        elif which_team == "B":
+            current_shirt_number = input("What number is being subbed off the court?")
+            replacement_shirt_number = input("What number is being subbed on the court?")
+            for i in range(7):
+                if shirt_list_team_b[i] == current_shirt_number:
+                    shirt_list_team_b[i] = replacement_shirt_number
+            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
+            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
+            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+        elif which_team == "back":
+            print("Going back to menu.")
+            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
+            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
+            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+        else:
+            print("An error has occured. Please try again.")
+    if action == 4:
+        which_team = input("If team A ({}) is calling a timeout enter: 'A'. If team B ({}) is calling a timeout enter: 'B'. If you want to go back to menu enter: 'back'".format(team_a, team_b))
+        if which_team == "A":
+            if team_a_timeouts == 0:
+                print(team_a + " is out of timeouts.")
+            elif team_a_timeouts > 0:
+            
+
 
 
