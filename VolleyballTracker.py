@@ -78,7 +78,7 @@ while True:
         else:
             print("An error has occured, please try again.")
 
-     #Making a substitution *THIS IS NOT WORKING*
+     #Making a substitution
     elif action == 3:
         which_team = input("Which team is making a substitution: if team A ({}) enter 'A'. If team B ({}) enter 'B'. If you wish to go back to the menu enter 'back'.".format(team_a, team_b))
         if which_team == "A":
@@ -106,13 +106,70 @@ while True:
             print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
         else:
             print("An error has occured. Please try again.")
+
+    #Calling a timeout
     if action == 4:
         which_team = input("If team A ({}) is calling a timeout enter: 'A'. If team B ({}) is calling a timeout enter: 'B'. If you want to go back to menu enter: 'back'".format(team_a, team_b))
+        #Team A calling a timeout
         if which_team == "A":
+            #Check they haven't already used all of their timeouts
             if team_a_timeouts == 0:
                 print(team_a + " is out of timeouts.")
             elif team_a_timeouts > 0:
-            
+                team_a_timeouts -= 1
+                #Inform the coaches - keep them updated and informed
+                if team_a_timeouts == 2:
+                    print("Team A ({}) has {} remaining timeouts, please tell their coach this.".format(team_a, team_a_timeouts))
+                elif team_a_timeouts == 1:
+                    print("Team A ({}) has {} remaining timeouts, please tell their coach this.".format(team_a, team_a_timeouts))
+                elif team_a_timeouts == 0:
+                    print("Team A ({}) is out of timeouts, please tell their coach.".format(team_a))
 
+        #Team B calling a timeout
+        elif which_team == "B":
+            #Check they haven't already used all of their timeouts
+            if team_b_timeouts == 0:
+                print(team_b + " is out of timeouts.")
+            elif team_b_timeouts > 0:
+                team_b_timeouts -= 1
+                #Inform the coaches - keep them updated and informed
+                if team_b_timeouts == 2:
+                    print("Team B ({}) has {} remaining timeouts, please tell their coach this.".format(team_b, team_b_timeouts))
+                elif team_a_timeouts == 1:
+                    print("Team B ({}) has {} remaining timeouts, please tell their coach this.".format(team_b, team_b_timeouts))
+                elif team_a_timeouts == 0:
+                    print("Team B ({}) is out of timeouts, please tell their coach.".format(team_b))
 
+        #Going back to menu
+        elif which_team == "back":
+            print("Going back to menu.")
 
+        else:
+            print("An error has occured, please try again.")
+
+    #Adding a set
+    if action == 5:
+        #Make sure the information is written down
+        print("Write down the score for the last set. Team A ({}) points = {}. Team B ({}) points = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
+        which_team = input("If Team A ({}) won the set enter: 'A'. If Team B ({}) won the set enter: 'B'. If you wish to go back to the menu enter: 'back'".format(team_a, team_b))
+
+        #Team A won the set *CHECK*
+        if which_team == "A":
+            team_a_set_score += 1
+            if number_of_sets == 3:
+                if team_a_set_score == 2:
+                    print("Team A ({}) has won! The set score was: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
+                    break
+                else:
+                    print("The set score is: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
+                    team_a_point_score == 0
+                    team_b_point_score == 0
+
+            if number_of_sets == 5:
+                    if team_a_set_score == 3:
+                        print("Team A ({}) has won! The set score was: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
+                        break
+                    else:
+                        print("The set score is: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
+                        team_a_point_score == 0
+                        team_b_point_score == 0
