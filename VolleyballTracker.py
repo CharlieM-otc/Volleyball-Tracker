@@ -36,7 +36,7 @@ print("The players on the court for {} are: {}".format(team_b, shirt_list_team_b
 
 #Display action menu to user and allow user to commence a action as many times as they want
 while True:
-    action = int(input("Action menu: Enter the number which correspondes to the action you are wishing to take. '1' = add  a point. '2' = remove a point. '3' = make a substitution. '4' = call a timeout. '5' = add a set. '6' = exit program."))
+    action = int(input("Action menu: Enter the number which correspondes to the action you are wishing to take.\n'1' = add a point.\n'2' = remove a point.\n'3' = make a substitution.\n'4' = call a timeout.\n'5' = add a set.\n'6' = exit program.\n"))
     #Adding a point
     if action == 1:
         which_team = input("Which team won the point: if team A ({}) won the point enter 'A'. If team B ({}) won the pont enter 'B'. If you wish to go back to the menu enter 'back'.".format(team_a, team_b))
@@ -158,18 +158,55 @@ while True:
             team_a_set_score += 1
             if number_of_sets == 3:
                 if team_a_set_score == 2:
-                    print("Team A ({}) has won! The set score was: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
+                    print("Team A ({}) has won! The set score was: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a, team_a_set_score, team_b, team_b_set_score))
                     break
                 else:
                     print("The set score is: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
-                    team_a_point_score == 0
-                    team_b_point_score == 0
+                    team_a_point_score = 0
+                    team_b_point_score = 0
 
             if number_of_sets == 5:
                     if team_a_set_score == 3:
-                        print("Team A ({}) has won! The set score was: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
+                        print("Team A ({}) has won! The set score was: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a, team_a_set_score, team_b, team_b_set_score))
                         break
                     else:
                         print("The set score is: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
-                        team_a_point_score == 0
-                        team_b_point_score == 0
+                        team_a_point_score = 0
+                        team_b_point_score = 0
+
+        if which_team == "B":
+            team_b_set_score += 1
+            if number_of_sets == 3:
+                if team_b_set_score == 2:
+                    print("Team B ({}) has won! The set score was: Team A ({}) won {} sets. Team B ({}) won {} sets.".format(team_b, team_a, team_a_set_score, team_b, team_b_set_score))
+                    break
+                else:
+                    print("The set score is: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
+                    team_a_point_score = 0
+                    team_b_point_score = 0
+
+            if number_of_sets == 5:
+                if team_b_set_score == 3:
+                    print("Team B ({}) has won! The set score was: Team A ({}) won {} sets. Team B ({}) won {} sets.".format(team_b, team_a, team_a_set_score, team_b, team_b_set_score))
+                    break
+                else:
+                    print("The set score is: Team A ({}) = {} and Team B ({}) = {}.".format(team_a, team_a_set_score, team_b, team_b_set_score))
+                    team_a_point_score = 0
+                    team_b_point_score = 0
+
+    #Exiting the program
+    if action == 6:
+        leaving =  input("Are you sure you wish to exit the program, all the stored information will be lost. Enter 'stay' to stay in the program and enter 'leave' to leave the program.").strip().lower()
+        #staying
+        if leaving == 'stay':
+            print("Going back to menu.")
+
+        #exiting program
+        elif leaving == 'leave':
+            print("Leaving program.")
+            break
+
+        #mistake made
+        else:
+            print("An error has occured, please try again.")
+
