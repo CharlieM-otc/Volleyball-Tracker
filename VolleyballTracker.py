@@ -10,6 +10,12 @@ team_a_number_of_subs = 12
 team_b_number_of_subs = 12
 team_a_timeouts = 3
 team_b_timeouts = 3
+def game_info():
+    print("Going back to menu.")
+    print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
+    print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
+    print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+
 
 game_type = input("Is the game a junior (best of 3 sets) game or a senior (best of 5 sets) game?").strip().lower()
 if game_type == "junior":
@@ -51,10 +57,7 @@ while True:
             print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
             print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
         elif which_team == "back":
-            print("Going back to menu.")
-            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
-            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+            print(game_info()) #Need to test/check
         else:
             print("An error has occured, please try again.")
     #Removing a point
