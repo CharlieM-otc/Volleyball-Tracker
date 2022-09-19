@@ -10,54 +10,52 @@ team_a_number_of_subs = 12
 team_b_number_of_subs = 12
 team_a_timeouts = 3
 team_b_timeouts = 3
+
+#Printing info function
 def game_info():
     print("Going back to menu.")
     print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
     print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-    print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+    print("Player's shirt numbers who are on the court:\n {} = {}.\n {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
 
 
-game_type = input("Is the game a junior (best of 3 sets) game or a senior (best of 5 sets) game?").strip().lower()
+game_type = input("Is the game a junior (best of 3 sets) game or a senior (best of 5 sets) game?\n").strip().lower()
 if game_type == "junior":
     number_of_sets += 3
 if game_type == "senior":
     number_of_sets += 5
 
 #Ask the users for the names of the teams playinng
-team_a = input("What is the name of the team that is team A?")
-team_b = input("What is the name of the team that is team B?")
+team_a = input("What is the name of the team that is team A?\n")
+team_b = input("What is the name of the team that is team B?\n")
 
 #Ask the user for the shirt numbers of the players of on the court for each team
 for i in range(7):
-    shirt_number_input_team_a = input("Please enter the shirt number of a person on the court for " + team_a)
+    shirt_number_input_team_a = input("Please enter the shirt number of a person on the court for " + team_a + "\n")
     shirt_list_team_a.append(shirt_number_input_team_a)
 
 for i in range(7):
-    shirt_number_input_team_b = input("Please enter the shirt number of a person on the court for " + team_b)
+    shirt_number_input_team_b = input("Please enter the shirt number of a person on the court for " + team_b + "\n")
     shirt_list_team_b.append(shirt_number_input_team_b)
 
 #Display the shirt numbers on the court
-print("The players on the court for {} are: {}".format(team_a, shirt_list_team_a))
-print("The players on the court for {} are: {}".format(team_b, shirt_list_team_b))
+print("The players on the court for {} are:\n {}".format(team_a, shirt_list_team_a))
+print("The players on the court for {} are:\n {}".format(team_b, shirt_list_team_b))
 
 #Display action menu to user and allow user to commence a action as many times as they want
 while True:
     action = int(input("Action menu: Enter the number which correspondes to the action you are wishing to take.\n'1' = add a point.\n'2' = remove a point.\n'3' = make a substitution.\n'4' = call a timeout.\n'5' = add a set.\n'6' = exit program.\n"))
     #Adding a point
     if action == 1:
-        which_team = input("Which team won the point: if team A ({}) won the point enter 'A'. If team B ({}) won the pont enter 'B'. If you wish to go back to the menu enter 'back'.".format(team_a, team_b))
+        which_team = input("Which team won the point: if team A ({}) won the point enter 'A'. If team B ({}) won the pont enter 'B'. If you wish to go back to the menu enter 'back'.\n".format(team_a, team_b))
         if which_team == "A":
             team_a_point_score += 1
-            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
-            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+            game_info()
         elif which_team == "B":
             team_b_point_score += 1
-            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
-            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+            game_info()
         elif which_team == "back":
-            print(game_info()) #Need to test/check
+            game_info()
         else:
             print("An error has occured, please try again.")
     #Removing a point
@@ -65,19 +63,13 @@ while True:
         which_team = input("Which team are you removing a point from: if team A ({}) enter 'A'. If team B ({}) enter 'B'. If you wish to go back to the menu enter 'back'.".format(team_a, team_b))
         if which_team == "A":
             team_a_point_score -= 1
-            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
-            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+            game_info()
         elif which_team == "B":
             team_b_point_score -= 1
-            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
-            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+            game_info()
         elif which_team == "back":
             print("Going back to menu.")
-            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
-            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+            game_info()
         else:
             print("An error has occured, please try again.")
 
@@ -90,23 +82,17 @@ while True:
             for i in range(7):
                 if shirt_list_team_a[i] == current_shirt_number:
                     shirt_list_team_a[i] = replacement_shirt_number
-            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
-            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+            game_info()
         elif which_team == "B":
             current_shirt_number = input("What number is being subbed off the court?")
             replacement_shirt_number = input("What number is being subbed on the court?")
             for i in range(7):
                 if shirt_list_team_b[i] == current_shirt_number:
                     shirt_list_team_b[i] = replacement_shirt_number
-            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
-            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+            game_info()
         elif which_team == "back":
             print("Going back to menu.")
-            print("Points: {} = {}. {} = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
-            print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
-            print("Player's shirt numbers who are on the court: {} = {}. {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
+            game_info()
         else:
             print("An error has occured. Please try again.")
 
@@ -118,30 +104,38 @@ while True:
             #Check they haven't already used all of their timeouts
             if team_a_timeouts == 0:
                 print(team_a + " is out of timeouts.")
+                game_info()
             elif team_a_timeouts > 0:
                 team_a_timeouts -= 1
                 #Inform the coaches - keep them updated and informed
                 if team_a_timeouts == 2:
                     print("Team A ({}) has {} remaining timeouts, please tell their coach this.".format(team_a, team_a_timeouts))
+                    game_info()
                 elif team_a_timeouts == 1:
                     print("Team A ({}) has {} remaining timeouts, please tell their coach this.".format(team_a, team_a_timeouts))
+                    game_info()
                 elif team_a_timeouts == 0:
                     print("Team A ({}) is out of timeouts, please tell their coach.".format(team_a))
+                    game_info()
 
         #Team B calling a timeout
         elif which_team == "B":
             #Check they haven't already used all of their timeouts
             if team_b_timeouts == 0:
                 print(team_b + " is out of timeouts.")
+                game_info()
             elif team_b_timeouts > 0:
                 team_b_timeouts -= 1
                 #Inform the coaches - keep them updated and informed
                 if team_b_timeouts == 2:
                     print("Team B ({}) has {} remaining timeouts, please tell their coach this.".format(team_b, team_b_timeouts))
+                    game_info()
                 elif team_a_timeouts == 1:
                     print("Team B ({}) has {} remaining timeouts, please tell their coach this.".format(team_b, team_b_timeouts))
+                    game_info()
                 elif team_a_timeouts == 0:
                     print("Team B ({}) is out of timeouts, please tell their coach.".format(team_b))
+                    game_info()
 
         #Going back to menu
         elif which_team == "back":
@@ -153,7 +147,7 @@ while True:
     #Adding a set
     if action == 5:
         #Make sure the information is written down
-        print("Write down the score for the last set. Team A ({}) points = {}. Team B ({}) points = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
+        print("Write down the score for the last set:\n Team A ({}) points = {}.\n Team B ({}) points = {}.".format(team_a, team_a_point_score, team_b, team_b_point_score))
         which_team = input("If Team A ({}) won the set enter: 'A'. If Team B ({}) won the set enter: 'B'. If you wish to go back to the menu enter: 'back'".format(team_a, team_b))
 
         #Team A won the set *CHECK*
