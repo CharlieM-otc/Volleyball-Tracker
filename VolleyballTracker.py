@@ -18,12 +18,18 @@ def game_info():
     print("Sets: {} = {}. {} = {}".format(team_a, team_a_set_score, team_b, team_b_set_score))
     print("Player's shirt numbers who are on the court:\n {} = {}.\n {} = {}".format(team_a, shirt_list_team_a, team_b, shirt_list_team_b))
 
-
-game_type = input("Is the game a junior (best of 3 sets) game or a senior (best of 5 sets) game?\n").strip().lower()
-if game_type == "junior":
-    number_of_sets += 3
-if game_type == "senior":
-    number_of_sets += 5
+#Get number of sets in this game - game type
+correct = True
+while correct == True:
+    game_type = input("Is the game a junior (best of 3 sets) game or a senior (best of 5 sets) game?\n").strip().lower()
+    if game_type == "junior":
+        number_of_sets += 3
+        correct = False
+    elif game_type == "senior":
+        number_of_sets += 5
+        correct = False
+    else:
+        print("An error has occured please try again. Make sure to double check what you are doing.")
 
 #Ask the users for the names of the teams playinng
 team_a = input("What is the name of the team that is team A?\n")
@@ -31,12 +37,28 @@ team_b = input("What is the name of the team that is team B?\n")
 
 #Ask the user for the shirt numbers of the players of on the court for each team
 for i in range(7):
-    shirt_number_input_team_a = input("Please enter the shirt number of a person on the court for " + team_a + "\n")
-    shirt_list_team_a.append(shirt_number_input_team_a)
+    okay = True
+    while okay == True:
+        shirt_number_input_team_a = input("Please enter the shirt number of a person on the court for " + team_a + "\n")
+        different = shirt_number_input_team_a in shirt_list_team_a
+        if different == True:
+            print("This player number has already been entered.")
+        else:
+            shirt_list_team_a.append(shirt_number_input_team_a)
+            different = False
+            okay = False
 
 for i in range(7):
-    shirt_number_input_team_b = input("Please enter the shirt number of a person on the court for " + team_b + "\n")
-    shirt_list_team_b.append(shirt_number_input_team_b)
+    okay = True
+    while okay == True:
+        shirt_number_input_team_b = input("Please enter the shirt number of a person on the court for " + team_b + "\n")
+        different = shirt_number_input_team_b in shirt_list_team_b
+        if different == True:
+            print("This player number has already been entered.")
+        else:
+            shirt_list_team_b.append(shirt_number_input_team_b)
+            different = False
+            okay = False
 
 #Display the shirt numbers on the court
 print("The players on the court for {} are:\n {}".format(team_a, shirt_list_team_a))
