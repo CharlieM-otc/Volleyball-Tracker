@@ -33,7 +33,7 @@ while correct == False:
 
 #Ask the users for the names of the teams playinng
 team_a = input("What is the name of the team that is team A?\n")
-valid =jun False
+valid = False
 while valid == False:
     team_b = input("What is the name of the team that is team B?\n")
     if team_b == team_a:
