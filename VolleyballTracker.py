@@ -76,10 +76,10 @@ while True:
     #Adding a point
     if action == 1:
         which_team = input("Which team won the point: if team A ({}) won the point enter 'A'. If team B ({}) won the pont enter 'B'. If you wish to go back to the menu enter 'back'.\n".format(team_a, team_b))
-        if which_team == "A":
+        if which_team == "A" or which_team == 'a':
             team_a_point_score += 1
             game_info()
-        elif which_team == "B":
+        elif which_team == "B" or which_team == 'b':
             team_b_point_score += 1
             game_info()
         elif which_team == "back":
@@ -89,13 +89,13 @@ while True:
     #Removing a point
     elif action == 2:
         which_team = input("Which team are you removing a point from: if team A ({}) enter 'A'. If team B ({}) enter 'B'. If you wish to go back to the menu enter 'back'.".format(team_a, team_b))
-        if which_team == "A":
+        if which_team == "A" or which_team == "a":
             if team_a_point_score == 0:
                 print(team_a + " has 0 points. You can not remove a point.")
             else:
                 team_a_point_score -= 1
             game_info()
-        elif which_team == "B":
+        elif which_team == "B" or which_team == "b":
             if team_a_point_score == 0:
                 print(team_b + " has 0 points. You can not remove a point.")
             else:
@@ -110,14 +110,14 @@ while True:
      #Making a substitution
     elif action == 3:
         which_team = input("Which team is making a substitution: if team A ({}) enter 'A'. If team B ({}) enter 'B'. If you wish to go back to the menu enter 'back'.".format(team_a, team_b))
-        if which_team == "A":
+        if which_team == "A" or which_team == 'a':
             current_shirt_number = input("What number is being subbed off the court?")
             replacement_shirt_number = input("What number is being subbed on the court?")
             for i in range(7):
                 if shirt_list_team_a[i] == current_shirt_number:
                     shirt_list_team_a[i] = replacement_shirt_number
             game_info()
-        elif which_team == "B":
+        elif which_team == "B" or which_team == 'b':
             current_shirt_number = input("What number is being subbed off the court?")
             replacement_shirt_number = input("What number is being subbed on the court?")
             for i in range(7):
@@ -134,7 +134,7 @@ while True:
     if action == 4:
         which_team = input("If team A ({}) is calling a timeout enter: 'A'. If team B ({}) is calling a timeout enter: 'B'. If you want to go back to menu enter: 'back'".format(team_a, team_b))
         #Team A calling a timeout
-        if which_team == "A":
+        if which_team == "A" or which_team == 'a':
             #Check they haven't already used all of their timeouts
             if team_a_timeouts == 0:
                 print(team_a + " is out of timeouts.")
@@ -153,7 +153,7 @@ while True:
                     game_info()
 
         #Team B calling a timeout
-        elif which_team == "B":
+        elif which_team == "B" or which_team == 'b':
             #Check they haven't already used all of their timeouts
             if team_b_timeouts == 0:
                 print(team_b + " is out of timeouts.")
@@ -185,7 +185,7 @@ while True:
         which_team = input("If Team A ({}) won the set enter: 'A'. If Team B ({}) won the set enter: 'B'. If you wish to go back to the menu enter: 'back'".format(team_a, team_b))
 
         #Team A won the set *CHECK*
-        if which_team == "A":
+        if which_team == "A" or which_team == 'a':
             team_a_set_score += 1
             if number_of_sets == 3:
                 if team_a_set_score == 2:
@@ -205,7 +205,7 @@ while True:
                         team_a_point_score = 0
                         team_b_point_score = 0
 
-        if which_team == "B":
+        if which_team == "B" or which_team == 'b':
             team_b_set_score += 1
             if number_of_sets == 3:
                 if team_b_set_score == 2:
