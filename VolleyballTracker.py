@@ -84,10 +84,16 @@ while True:
     elif action == 2:
         which_team = input("Which team are you removing a point from: if team A ({}) enter 'A'. If team B ({}) enter 'B'. If you wish to go back to the menu enter 'back'.".format(team_a, team_b))
         if which_team == "A":
-            team_a_point_score -= 1
+            if team_a_point_score == 0:
+                print(team_a + " has 0 points. You can not remove a point.")
+            else:
+                team_a_point_score -= 1
             game_info()
         elif which_team == "B":
-            team_b_point_score -= 1
+            if team_a_point_score == 0:
+                print(team_b + " has 0 points. You can not remove a point.")
+            else:
+                team_b_point_score -= 1
             game_info()
         elif which_team == "back":
             print("Going back to menu.")
