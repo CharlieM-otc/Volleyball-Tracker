@@ -1,5 +1,7 @@
 #Ask the user to if it is a junior or senior game
 number_of_sets = 0
+team_a = "a"
+team_b = "b"
 team_a_point_score = 0
 team_b_point_score = 0
 shirt_list_team_a = []
@@ -32,9 +34,9 @@ while correct == False:
         print("An error has occured please try again. Make sure to double check what you are doing.")
 
 #Ask the users for the names of the teams playinng
-team_a = input("What is the name of the team that is team A?\n")
 valid = False
 while valid == False:
+    team_a = input("What is the name of the team that is team A?\n")
     team_b = input("What is the name of the team that is team B?\n")
     if team_b == team_a:
         print("You have entered the same team name for both teams. Try again.")
@@ -82,7 +84,7 @@ while True:
         elif which_team == "B" or which_team == 'b':
             team_b_point_score += 1
             game_info()
-        elif which_team == "back":
+        elif which_team == "back" or which_team == 'Back':
             game_info()
         else:
             print("An error has occured, please try again.")
@@ -101,7 +103,7 @@ while True:
             else:
                 team_b_point_score -= 1
             game_info()
-        elif which_team == "back":
+        elif which_team == "back" or which_team == 'Back':
             print("Going back to menu.")
             game_info()
         else:
@@ -124,7 +126,7 @@ while True:
                 if shirt_list_team_b[i] == current_shirt_number:
                     shirt_list_team_b[i] = replacement_shirt_number
             game_info()
-        elif which_team == "back":
+        elif which_team == "back" or which_team == 'Back':
             print("Going back to menu.")
             game_info()
         else:
@@ -172,7 +174,7 @@ while True:
                     game_info()
 
         #Going back to menu
-        elif which_team == "back":
+        elif which_team == "back" or which_team == 'Back':
             print("Going back to menu.")
 
         else:
@@ -225,15 +227,18 @@ while True:
                     team_a_point_score = 0
                     team_b_point_score = 0
 
+        if which_team == 'back' or which_team == 'Back':
+            print("Going back to menu.")
+
     #Exiting the program
     if action == 6:
         leaving =  input("Are you sure you wish to exit the program, all the stored information will be lost. Enter 'stay' to stay in the program and enter 'leave' to leave the program.").strip().lower()
         #staying
-        if leaving == 'stay':
+        if leaving == 'stay' or leaving == 'Stay':
             print("Going back to menu.")
 
         #exiting program
-        elif leaving == 'leave':
+        elif leaving == 'leave' or leaving == 'Leave':
             print("Leaving program.")
             break
 
